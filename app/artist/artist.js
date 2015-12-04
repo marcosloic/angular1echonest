@@ -9,15 +9,25 @@
 
         vm = this;
         vm.name = $stateParams.name;
+        vm.artist;
+        vm.biography;
 
-        echonestService.getArtistData(vm.name).then(function(response) {
-        	vm.artist = response;
-        	console.log(response);
-        });
+        getArtistData(vm.name);
+        getArtistBio(vm.name);
 
-        echonestService.getArtistBio(vm.name).then(function(response) {
-        	vm.biography = response;
-        })
+
+        function getArtistData(name) {
+	        echonestService.getArtistData(name).then(function(response) {
+	        	vm.artist = response
+	        	console.log(response)
+	        })
+    	}
+
+    	function getArtistBio(name) {
+	        echonestService.getArtistBio(name).then(function(response) {
+	        	vm.biography = response
+	        })
+    	}
 
     };
 })();
