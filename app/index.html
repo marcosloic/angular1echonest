@@ -7,11 +7,8 @@
   <title ng-bind="appCtrl.pageTitle"></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" type="text/css" href="bower_components/materialize/dist/css/materialize.css" />
   <link rel="stylesheet" type="text/css" href="bower_components/fontawesome/css/font-awesome.css" />
-
-  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/materialize.min.css">
 
 </head>
 <body>
@@ -20,7 +17,7 @@
   <header id="header" class="page-topbar">
     <nav class="cyan">
       <div class="nav-wrapper container">
-        <a href="#" class="brand-logo">Angular 1 and Echonest {{AppCtrl.appTitle}}</a>
+        <a href="#" class="brand-logo">Angular 1 and Echonest</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#">My favourites <span class="new badge pink">1</span></a></li>
           <li><a href="#">Search an artist</a></li>
@@ -30,18 +27,13 @@
   </header>
 
 
-      <div class="container" ui-view="main"></div>
+      <div ui-view="main"></div>
 
 
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="bower_components/materialize/dist/css/materialize.css"></script>
   <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
   <!-- Load Services First -->
-  <script type="text/javascript" src="common/numberGenerator.module.js"></script>
-  <script type="text/javascript" src="common/numberGenerator.service.js"></script>
-
-
   <script type="text/javascript" src="services/echonest.module.js"></script>
   <script type="text/javascript" src="services/echonest.service.js"></script>
 
@@ -49,17 +41,10 @@
   <script type="text/javascript" src="hotttlist/hotttlist.route.js"></script>
   <script type="text/javascript" src="hotttlist/hotttlist.js"></script>
 
-    <script type="text/javascript" src="artist/artist.module.js"></script>
+  <script type="text/javascript" src="artist/artist.module.js"></script>
   <script type="text/javascript" src="artist/artist.route.js"></script>
   <script type="text/javascript" src="artist/artist.js"></script>
 
-  <script type="text/javascript" src="home/home.module.js"></script>
-  <script type="text/javascript" src="home/home.route.js"></script>
-  <script type="text/javascript" src="home/home.js"></script>
-
-  <script type="text/javascript" src="numbers/numbers.module.js"></script>
-  <script type="text/javascript" src="numbers/numbers.route.js"></script>
-  <script type="text/javascript" src="numbers/numbers.js"></script>
 
   <script type="text/javascript" src="app.module.js"></script>
   <script type="text/javascript" src="app.route.js"></script>

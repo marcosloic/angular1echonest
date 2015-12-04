@@ -6,8 +6,8 @@
 					<li class="collection-header">
 						<h2 class="header">{{hotttCtrl.listTitle}}</h2>
 					</li>
-					<a ui-sref="artist({name:'ok'})" class="collection-item">
-						<li>Hello</li>
+					<a ng-repeat="artist in hotttCtrl.artists track by $index" ui-sref="artist({name: artist.name})" class="collection-item">
+						<li>{{$index + 1}} : {{artist.name}}</li>
 					</a>
 				</ul>
 			</div>

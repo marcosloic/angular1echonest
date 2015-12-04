@@ -11,12 +11,13 @@ describe('hotttlist section', function () {
             $controller = _$controller_;
         }));
 
-        it('should provide simple access to its title', function () {
+        it('should provide simple access to its data', function () {
             var scope = {};
             var hotttCtrl = $controller('HotttCtrl', {$scope: scope});
 
             expect(hotttCtrl).toBeDefined();
             expect(hotttCtrl.listTitle).toBeDefined();
+            expect(hotttCtrl.artists).toBeDefined();
 
             expect(hotttCtrl.listTitle).toBe('Echonest\'s hotttest artists');
         });
