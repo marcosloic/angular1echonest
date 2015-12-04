@@ -7,15 +7,17 @@ module.exports = function (config) {
             'app/bower_components/angular/angular.js',
             'app/bower_components/angular-ui-router/release/angular-ui-router.js',
             'app/bower_components/angular-mocks/angular-mocks.js',
-            'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
             'app/**/*module.js',
             'app/common/**/*.js',
             'app/home/**/*.js',
+            'app/hotttlist/**.js',
+            'app/artist/**.js',
             'app/*.js'
         ],
 
         exclude: [
-            'app/**/*.scenario.js'
+            'app/**/*.scenario.js',
+            'app/bower_components'
         ],
 
         autoWatch: true,

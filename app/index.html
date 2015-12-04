@@ -1,46 +1,57 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="myApp" class="no-js">
 <head ng-controller="AppCtrl as appCtrl">
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title ng-bind="appCtrl.pageTitle"></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="bower_components/materialize/dist/css/materialize.css" />
   <link rel="stylesheet" type="text/css" href="bower_components/fontawesome/css/font-awesome.css" />
 
   <link rel="stylesheet" href="css/app.css">
 
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/home">home</a></li>
-    <li><a href="#/number-generator">number generator</a></li>
-  </ul>
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-      <![endif]-->
+
+  <header id="header" class="page-topbar">
+    <nav class="cyan">
+      <div class="nav-wrapper container">
+        <a href="#" class="brand-logo">Angular 1 and Echonest {{AppCtrl.appTitle}}</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#">My favourites <span class="new badge pink">1</span></a></li>
+          <li><a href="#">Search an artist</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
 
       <div class="container" ui-view="main"></div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
--->
-  <!-- WARNING: You will want to load all of your *.module.js files first since these
-  are where the definitions for the modules are.  Angular will barf if you reference them
-  before they are defined -->
+
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script type="text/javascript" src="bower_components/materialize/dist/css/materialize.css"></script>
   <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
   <!-- Load Services First -->
   <script type="text/javascript" src="common/numberGenerator.module.js"></script>
   <script type="text/javascript" src="common/numberGenerator.service.js"></script>
+
+
+  <script type="text/javascript" src="services/echonest.module.js"></script>
+  <script type="text/javascript" src="services/echonest.service.js"></script>
+
+  <script type="text/javascript" src="hotttlist/hotttlist.module.js"></script>
+  <script type="text/javascript" src="hotttlist/hotttlist.route.js"></script>
+  <script type="text/javascript" src="hotttlist/hotttlist.js"></script>
+
+    <script type="text/javascript" src="artist/artist.module.js"></script>
+  <script type="text/javascript" src="artist/artist.route.js"></script>
+  <script type="text/javascript" src="artist/artist.js"></script>
 
   <script type="text/javascript" src="home/home.module.js"></script>
   <script type="text/javascript" src="home/home.route.js"></script>

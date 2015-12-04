@@ -1,5 +1,5 @@
 (function() {
-    angular.module( 'myApp.home', [
+    angular.module( 'myApp.artist', [
         'ui.router'
     ]);
 
