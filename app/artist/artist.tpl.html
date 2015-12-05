@@ -9,15 +9,14 @@
 					<div class="col s2">
 					<div class="switch">
 						<h6 class="white-text">Reviews</h6>
-							<div class="switch">
-								<label class="white-text">
+						<div class="switch">
+							<label class="white-text">
 								Off
-									<input type="checkbox">
-									<span class="lever"></span>
+								<input type="checkbox" ng-click="artistCtrl.toggle('reviews')" checked={{artistCtrl.news}}>
+								<span class="lever"></span>
 								On
-								</label>
-							</div>
-
+							</label>
+						</div>
 					</div>
 
 					</div>
@@ -25,17 +24,17 @@
 					<div class="col s2">
 						<h6 class="white-text">News</h6>
 						<div class="switch">
-								<label class="white-text">
+							<label class="white-text">
 								Off
-									<input type="checkbox">
-									<span class="lever"></span>
+								<input type="checkbox" ng-click="artistCtrl.toggle('news')" checked={{artistCtrl.news}}>
+								<span class="lever"></span>
 								On
-								</label>
+							</label>
 						</div>
 					</div>
 					<div class="col s2">
 						<h6 class="white-text">Favourite</h6>
-							<i class="material-icons">star_rate</i>
+							<i class="material-icons white-text">star_rate</i>
 						</div>
 					</div>
 
@@ -51,7 +50,8 @@
 				<div class="card">
 					<div class="card-content" style="max-height:250px; overflow:hidden">
 						<h5 class="black-text">Biography</h5>
-						<p>{{artistCtrl.biography.text}}</p>
+						<p ng-if="artistCtrl.biography">{{artistCtrl.biography.text}}</p>
+						<p ng-if="!artistCtrl.biography">There's nothing to show</p>
 					</div>
 					<div class="card-action">
 						<a href="{{artistCtrl.biography.url}}">Read the full biography</a>
@@ -61,7 +61,7 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container" ng-show="artistCtrl.reviews">
 			<div class="row">
 				<div class="col s12">
 					<h5 class="pink-text text-accent-2">Reviews for {{artistCtrl.name}}</h5>
@@ -80,7 +80,7 @@
 			</div>
 		</div>
 		
-		<div class="container">
+		<div class="container" ng-show="artistCtrl.news">
 			<div class="row">
 				<div class="col s12">
 					<h5 class="pink-text text-accent-2">News for {{artistCtrl.name}}</h5>

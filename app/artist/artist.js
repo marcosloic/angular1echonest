@@ -11,15 +11,22 @@
         vm.name = $stateParams.name;
         vm.artist;
         vm.biography;
+        vm.toggle = toggle;
+        vm.news = true;
+        vm.reviews = true;
 
         getArtistData(vm.name);
         getArtistBio(vm.name);
 
 
+        function toggle(name) {
+        	vm[name] = !vm[name];
+        }
+
+
         function getArtistData(name) {
 	        echonestService.getArtistData(name).then(function(response) {
 	        	vm.artist = response
-	        	console.log(response)
 	        })
     	}
 
