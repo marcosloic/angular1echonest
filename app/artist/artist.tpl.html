@@ -1,100 +1,101 @@
 <div class="cyan">
-		<div class="container">
-			<div class="row valign-wrapper">
+	<div class="container">
+		<div class="row valign-wrapper">
 
-					<div class="col s6">
-						<h1 class="white-text">{{artistCtrl.name}}</h1>
-					</div>
+			<div class="col s6">
+				<h1 class="white-text">{{artistCtrl.name}}</h1>
+			</div>
 
-					<div class="col s2">
+			<div class="col s2">
+				<div class="switch">
+					<h6 class="white-text">Reviews</h6>
 					<div class="switch">
-						<h6 class="white-text">Reviews</h6>
-						<div class="switch">
-							<label class="white-text">
-								Off
-								<input type="checkbox" ng-click="artistCtrl.toggle('reviews')" checked={{artistCtrl.news}}>
-								<span class="lever"></span>
-								On
-							</label>
-						</div>
+						<label class="white-text">
+							Off
+							<input type="checkbox" ng-click="artistCtrl.toggle('reviews')" checked={{artistCtrl.news}}>
+							<span class="lever"></span>
+							On
+						</label>
 					</div>
+				</div>
 
-					</div>
+			</div>
 
-					<div class="col s2">
-						<h6 class="white-text">News</h6>
-						<div class="switch">
-							<label class="white-text">
-								Off
-								<input type="checkbox" ng-click="artistCtrl.toggle('news')" checked={{artistCtrl.news}}>
-								<span class="lever"></span>
-								On
-							</label>
-						</div>
-					</div>
-					<div class="col s2">
-						<h6 class="white-text">Favourite</h6>
-							<i class="material-icons white-text">star_rate</i>
-						</div>
-					</div>
-
-					</div>
-
-
+			<div class="col s2">
+				<h6 class="white-text">News</h6>
+				<div class="switch">
+					<label class="white-text">
+						Off
+						<input type="checkbox" ng-click="artistCtrl.toggle('news')" checked={{artistCtrl.news}}>
+						<span class="lever"></span>
+						On
+					</label>
+				</div>
+			</div>
+			<div class="col s2">
+				<h6 class="white-text">Favourite</h6>
+				<i ng-show="!artistCtrl.isFavourite" class="material-icons white-text" ng-click="artistCtrl.addFavourite(artistCtrl.name)">star_rate</i>
+				<i ng-show="artistCtrl.isFavourite" class="material-icons yellow-text" ng-click="artistCtrl.deleteFavourite(artistCtrl.name)">star_rate</i>
 			</div>
 		</div>
 
-		<div class="container">
-			<div class="row">
-				<div class="col s12">
-				<div class="card">
-					<div class="card-content" style="max-height:250px; overflow:hidden">
-						<h5 class="black-text">Biography</h5>
-						<p ng-if="artistCtrl.biography">{{artistCtrl.biography.text}}</p>
-						<p ng-if="!artistCtrl.biography">There's nothing to show</p>
-					</div>
-					<div class="card-action">
-						<a href="{{artistCtrl.biography.url}}">Read the full biography</a>
-					</div>
-				</div>
-				</div>
-			</div>
-		</div>
+	</div>
 
-		<div class="container" ng-show="artistCtrl.reviews">
-			<div class="row">
-				<div class="col s12">
-					<h5 class="pink-text text-accent-2">Reviews for {{artistCtrl.name}}</h5>
+
+</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+			<div class="card">
+				<div class="card-content" style="max-height:250px; overflow:hidden">
+					<h5 class="black-text">Biography</h5>
+					<p ng-if="artistCtrl.biography">{{artistCtrl.biography.text}}</p>
+					<p ng-if="!artistCtrl.biography">There's nothing to show</p>
 				</div>
-				<div class="col s3" ng-repeat="review in artistCtrl.artist.reviews | limitTo:4:0">
-					<div class="card">
-						<div class="card-content" style="max-height:250px; overflow:hidden">
-							<h5 class="pink-text text-lighten-1">{{review.name}}</h5>
-							<p>{{review.summary}}</p>
-						</div>
-						<div class="card-action">
-							<a href="{{review.url}}">Read the full review</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="container" ng-show="artistCtrl.news">
-			<div class="row">
-				<div class="col s12">
-					<h5 class="pink-text text-accent-2">News for {{artistCtrl.name}}</h5>
-				</div>
-				<div class="col s3" ng-repeat="news in artistCtrl.artist.news | limitTo:4:0">
-					<div class="card">
-						<div class="card-content" style="max-height:250px; overflow:hidden">
-							<h5 class="pink-text text-lighten-1">{{news.name}}</h5>
-							<p>{{news.summary}}</p>
-						</div>
-						<div class="card-action">
-							<a href="{{news.url}}">Read the full news</a>
-						</div>
-					</div>
+				<div class="card-action">
+					<a href="{{artistCtrl.biography.url}}">Read the full biography</a>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+
+<div class="container" ng-show="artistCtrl.reviews">
+	<div class="row">
+		<div class="col s12">
+			<h5 class="pink-text text-accent-2">Reviews for {{artistCtrl.name}}</h5>
+		</div>
+		<div class="col s3" ng-repeat="review in artistCtrl.artist.reviews | limitTo:4:0">
+			<div class="card">
+				<div class="card-content" style="max-height:250px; overflow:hidden">
+					<h5 class="pink-text text-lighten-1">{{review.name}}</h5>
+					<p>{{review.summary}}</p>
+				</div>
+				<div class="card-action">
+					<a href="{{review.url}}">Read the full review</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container" ng-show="artistCtrl.news">
+	<div class="row">
+		<div class="col s12">
+			<h5 class="pink-text text-accent-2">News for {{artistCtrl.name}}</h5>
+		</div>
+		<div class="col s3" ng-repeat="news in artistCtrl.artist.news | limitTo:4:0">
+			<div class="card">
+				<div class="card-content" style="max-height:250px; overflow:hidden">
+					<h5 class="pink-text text-lighten-1">{{news.name}}</h5>
+					<p>{{news.summary}}</p>
+				</div>
+				<div class="card-action">
+					<a href="{{news.url}}">Read the full news</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

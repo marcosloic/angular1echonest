@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp" class="no-js">
-<head ng-controller="AppCtrl as appCtrl">
+<head>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title ng-bind="appCtrl.pageTitle"></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="bower_components/fontawesome/css/font-awesome.css" />
-  <link rel="stylesheet" href="css/materialize.min.css">
-  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="assets/css/materialize.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body ng-controller="AppCtrl as appCtrl">
+
 
 
   <header id="header" class="page-topbar">
@@ -20,25 +20,28 @@
       <div class="nav-wrapper container">
         <a href="#" class="brand-logo">Angular 1 and Echonest</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">My favourites <span class="new badge pink">1</span></a></li>
-          <li><a href="#">Search an artist</a></li>
+          <li><a ui-sref="favourites">My favourites <span ng-show="appCtrl.newArtists[0].isNew" class="new badge pink">
+            {{(appCtrl.newArtists | filter:{isNew:'true'}).length}}
+          </span></a></li>
         </ul>
       </div>
     </nav>
   </header>
 
+  <div ui-view="main"></div>
 
-      <div ui-view="main"></div>
 
-
-  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script type="text/javascript" src="assets/bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="assets/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
   <script type="text/javascript" src="directives/directives.module.js"></script>
 
   <!-- Load Services First -->
   <script type="text/javascript" src="services/echonest.module.js"></script>
   <script type="text/javascript" src="services/echonest.service.js"></script>
+
+  <script type="text/javascript" src="services/favstore.module.js"></script>
+  <script type="text/javascript" src="services/favstore.service.js"></script>
 
   <script type="text/javascript" src="hotttlist/hotttlist.module.js"></script>
   <script type="text/javascript" src="hotttlist/hotttlist.route.js"></script>
@@ -47,6 +50,10 @@
   <script type="text/javascript" src="artist/artist.module.js"></script>
   <script type="text/javascript" src="artist/artist.route.js"></script>
   <script type="text/javascript" src="artist/artist.js"></script>
+
+  <script type="text/javascript" src="favourites/favourites.module.js"></script>
+  <script type="text/javascript" src="favourites/favourites.route.js"></script>
+  <script type="text/javascript" src="favourites/favourites.js"></script>
 
 
   <script type="text/javascript" src="app.module.js"></script>

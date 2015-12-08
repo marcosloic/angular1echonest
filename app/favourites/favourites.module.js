@@ -1,5 +1,5 @@
 (function() {
-    angular.module( 'myApp.artist', [
+    angular.module( 'myApp.favourites', [
         'ui.router',
         'myApp.service.favstore',
     ]);
