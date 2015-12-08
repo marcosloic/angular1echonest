@@ -1,9 +1,8 @@
 {
-  "name": "sprint-planner",
-  "private": true,
+  "name": "Angular1Echonest",
   "version": "0.0.0",
-  "description": "A prototype for Sprint Planning",
-  "repository": "https://github.com/gistlabs/sprint-planner",
+  "description": "Angular1 rewrite of an Angular2 app",
+  "repository": "https://github.com/marcosloic/angular1echonest",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.3.1",
